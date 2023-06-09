@@ -6,7 +6,7 @@ export function useClickOutsideToClose<T>(
 ) {
   const close = useCallback(
     (e: MouseEvent) => {
-      const shouldIgnore = refsToIgnore.some((el) => el.current === e.target);
+      const shouldIgnore = refsToIgnore.some((ref) => ref.current === e.target);
       if (shouldIgnore) return;
       setIsOpen(false);
     },
