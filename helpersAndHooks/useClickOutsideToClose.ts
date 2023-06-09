@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback } from "react";
 
 export function useClickOutsideToClose<T>(
   setIsOpen: (arg: boolean) => void,
@@ -6,16 +6,16 @@ export function useClickOutsideToClose<T>(
 ) {
   const close = useCallback(
     (e: MouseEvent) => {
-      const shouldIgnore = refsToIgnore.some((el) => el.current === e.target)
-      if (shouldIgnore) return
-      setIsOpen(false)
+      const shouldIgnore = refsToIgnore.some((el) => el.current === e.target);
+      if (shouldIgnore) return;
+      setIsOpen(false);
     },
     [setIsOpen, refsToIgnore]
-  )
+  );
 
   useEffect(() => {
-    document.body.addEventListener("click", close)
+    document.body.addEventListener("click", close);
 
-    return () => document.body.removeEventListener("click", close)
-  }, [close])
+    return () => document.body.removeEventListener("click", close);
+  }, [close]);
 }
